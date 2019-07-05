@@ -1,0 +1,40 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Audio;
+
+public class AudioManager : MonoBehaviour {
+    
+    // Use this for initialization
+    static AudioClip background,apple,banana,enemy;
+    static AudioSource source;
+
+	void Start () {
+        background = Resources.Load<AudioClip>("bgsound");
+        apple = Resources.Load<AudioClip>("aps");
+        banana = Resources.Load<AudioClip>("bas");
+        enemy = Resources.Load<AudioClip>("ds");
+        source = GetComponent<AudioSource>();
+	}
+
+    public static void PlaySound(string music) {
+        switch (music)
+        {
+            case "backgound":
+                source.PlayOneShot(background);
+                break;
+            case "apple":
+                source.PlayOneShot(apple);
+                break;
+
+            case "banana":
+                source.PlayOneShot(banana);
+                break;
+            case "enemy":
+                source.PlayOneShot(enemy);
+                break;
+        }
+    }
+
+
+}
